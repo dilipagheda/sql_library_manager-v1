@@ -1,9 +1,13 @@
-form(action="/books/new", method="post")
+- 
+    let actionPath=`/books/new`;
+    if(book.id)
+        actionPath=`/books/${book.id}`;
+form(action=actionPath, method="post")
             if(errors)
                 h2(class="error")   Oooops!
                 ul(class="error")
-                    li  Author is required
-                    li  Name is required
+                    each error in errors
+                        li  #{error.message}
             p
                 label(for="title") Title
                 input(name="title", type="text", id="title" value=book.title)
