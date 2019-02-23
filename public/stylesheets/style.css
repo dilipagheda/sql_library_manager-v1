@@ -1,10 +1,12 @@
 body {
   padding: 10px 50px 50px;
-  font: 18px "Garamond", serif;
+  /* font: 18px "Garamond", serif; */
+  font-family: 'Text Me One', sans-serif;
+  font-size: 20px;
 }
 
 a {
-  color: #019875;
+  color: green;
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
@@ -14,61 +16,84 @@ a {
     color: black;
   }
 
-a.button, input[type=submit] {
+a.button {
   color: white;
-  background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background: white; */
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   padding: 10px 14px 12px;
-  font-size: 14px;
+  font-size: 22px;
   border-radius: 2px;
   cursor: pointer;
 }
+form{
+  /* border:1px solid green; */
+  background-color: lightgray;
+  padding:10px;
+  box-shadow: 10px 10px darkgrey;
+}
+.form-buttons * {
+  color: white;
+  background: green;
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
+  /* padding: 10px 14px 12px; */
+  font-size: 18px;
+  /* border-radius: 2px; */
+  cursor: pointer;
+  display:inline-block;
+  margin:5px;
 
-form a.button, input[type=submit] {
+}
+.form-buttons {
+  display:flex;
+  justify-content: flex-end;
+}
+.form-buttons *:hover {
+  border:1px solid green;
+  color:green;
+  background-color: white;
+}
+/* form a.button, input[type=submit] {
   margin-left: 140px;
   transition: 0.4s;
-}
+} */
 
 input[type=submit] {
   border: 0;
 }
 
-  a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
+  a.button:hover {
+    color:green;
+    background-color: white;
   }
 
 p {
   margin: 20px auto;
+  text-align: center;
 }
 
-ul {
-  padding: 0;
-  list-style-type: none;
-  margin-bottom: 10px;
-  line-height: 1.3em;
-}
-
-h2 {
-  border-top: 2px solid #e7e7e7;
-  padding-top: 20px;
-}
 
 th {
-  border-bottom: 2px solid #D8B493;
+  /* border-bottom: 2px solid #D8B493; */
   text-align: left;
   padding: 5px 20px 5px 10px;
+  border:2px solid green;
+  color:white;
+  background-color: green;
 }
 
 tr {
   min-height: 50px;
+  
 }
 
-tr:nth-child(2n) {
-  background: #E7E7E7;
-}
+/* tr:nth-child(2n), tr:nth-child(2n) a {
+  background: green;
+  color:white;
+} */
 
 td {
   padding: 5px 20px 5px 10px;
+  border:2px solid green;
 }
 
 label {
@@ -94,4 +119,82 @@ input[type=text] {
 
 .error {
   color: rgb(236, 15, 15);
+  margin:0;
+  text-align: center;
+}
+
+nav, ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+}
+
+ul li {
+  margin:10px;
+}
+
+nav {
+  background-color: green;
+  padding:0 10px;
+  box-shadow: 5px 5px yellowgreen;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  /* margin-bottom: 10px; */
+  line-height: 1.3em;
+}
+
+nav h1{
+  color:white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-left: 10px;
+}
+
+main {
+  margin-top:20px;
+}
+main table{
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.error{
+  display:block;
+}
+
+main h1 {
+  font-size:1rem;
+  color:green;
+  text-align: center;
+}
+
+.delete-form{
+  /* border:1px solid green; */
+  background-color:white;
+  padding:0;
+  box-shadow: none;
+  border:none;
+}
+.delete-form button {
+  border:none;
+}
+.delete-form button:hover{
+  cursor: pointer;
+}
+.fas{
+  font-size:1.5rem;
+  color:green;
+}
+td.actions div *{
+  /* border:none; */
+  display: inline-block;
+  margin:0 3px;
+}
+th{
+  text-align: center;
 }
