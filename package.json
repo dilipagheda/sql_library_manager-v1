@@ -2,9 +2,10 @@
   "name": "sql_library_manager-v1",
   "version": "1.0.0",
   "description": "SQL library manager",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node App.js"
   },
   "author": "Dilip Agheda",
   "license": "ISC",
@@ -14,5 +15,8 @@
     "sequelize": "^4.42.0",
     "sequelize-cli": "^5.4.0",
     "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
