@@ -1,13 +1,20 @@
+//  By default, this form will submit to /books/new route and so will create a new book
+//  If book.id exists then this form will submit to /book/:id and so will update the book with that id
+//  Finally, this form is also used for submit search if title is equal to 'Search'. This may not be best approach
+//  But will do for this small project.
 - 
     let actionPath=`/books/new`;
-    if(book.id)
+    if(book && book.id)
         actionPath=`/books/${book.id}`;
+    if(title==="Search")
+        actionPath=`/books/search`;
 form(action=actionPath, method="post")
+            p #{title}
             if(errors)
                 h2(class="error")   Oooops!
                 ul(class="error")
                     each error in errors
-                        li  #{error.message}
+                        li  #{error.message}            
             p
                 label(for="title") Title
                 input(name="title", type="text", id="title" value=book.title)
@@ -20,7 +27,6 @@ form(action=actionPath, method="post")
             p
                 label(for="year") Year
                 input(name="year",type="text",id="year" value=book.year)
-            p
+            div.form-buttons
                 input(type="submit",value=title)
-            p
                 a(class="button",href="/") Cancel

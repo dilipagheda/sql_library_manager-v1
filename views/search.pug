@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    include search-form
+    if books
+        h1 Search Result
+            include books-table

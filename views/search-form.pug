@@ -1,0 +1,41 @@
+-
+    let display='';
+    if (books){
+        display = '';
+        header = 'Expand Search Criteria';
+    }
+    else{
+        display = 'show';
+        header = 'Collapse Search Criteria';
+    }
+div(class="accordion",id="accordionExample")
+  div(class="card")
+    div(class="card-header",id="headingOne")
+      h2.mb-0
+        button(class="btn btn-link",type="button",data-toggle="collapse",data-target="#collapseOne",aria-expanded="true",aria-controls="collapseOne")
+          Enter #{header}
+        div(id="collapseOne" ,class=`collapse ${display}` ,aria-labelledby="headingOne" ,data-parent="#accordionExample")
+            div.card-body
+                form(action=`/books/search`, method="post")
+                            if(errors)
+                                h2(class="error")   Oooops!
+                                ul(class="error")
+                                    each error in errors
+                                        li  #{error.message}            
+                            p
+                                label(for="title") Title
+                                input(name="title", type="text", id="title" value=book.title)
+                            p
+                                label(for="author") Author
+                                input(name="author",type="text",id="author" value=book.author)
+                            p
+                                label(for="genre") Genre
+                                input(name="genre",type="text",id="genre"  value=book.genre)
+                            p
+                                label(for="year") Year
+                                input(name="year",type="text",id="year" value=book.year)
+                            div.form-buttons
+                                input(type="submit",value=title)
+                                a(class="button",href="/") Cancel
+
+

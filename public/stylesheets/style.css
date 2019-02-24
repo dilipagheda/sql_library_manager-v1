@@ -1,3 +1,8 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 body {
   padding: 10px 50px 50px;
   /* font: 18px "Garamond", serif; */
@@ -136,7 +141,7 @@ ul li {
 
 nav {
   background-color: green;
-  padding:0 10px;
+  padding:10px;
   box-shadow: 5px 5px yellowgreen;
 }
 
@@ -146,13 +151,16 @@ ul {
   /* margin-bottom: 10px; */
   line-height: 1.3em;
 }
-
+nav * {
+  margin:0;
+}
 nav h1{
   color:white;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-left: 10px;
+
 }
 
 main {
@@ -197,4 +205,10 @@ td.actions div *{
 }
 th{
   text-align: center;
+}
+h2.mb-0{
+  text-align: center;
+}
+h2.mb-0 .btn-link {
+  color:green;
 }

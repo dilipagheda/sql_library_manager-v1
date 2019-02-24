@@ -2,6 +2,8 @@
 var express = require('express');
 var router = express.Router();
 const Book = require('../models/book');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 /* GET method for /books route */
 router.get('/', function(req, res, next) {
@@ -20,7 +22,6 @@ router.get('/new', function(req, res, next) {
   res.render("new-book",{book:{},title:"Create New Book"});
 });
 
-
 /* POST method for /books/new route */
 router.post('/new', function(req, res, next) {
   Book.create(req.body)
@@ -38,6 +39,44 @@ router.post('/new', function(req, res, next) {
         res.status(500).render("error",{title:"Server Error"});
     });
   
+});
+
+/* GET method for /books/search route */
+router.get('/search', function(req, res, next) {
+
+  //NOTE: Important!
+  //In render method, book={} needs to be passed because we want to reuse the form.pug otherwise it is not needed at all here
+  res.render("search",{book:{}, title:"Search"});
+});
+
+/* POST method for /books/search route */
+router.post('/search', function(req, res, next) {
+  Book.findAll({
+    where: {
+      [Op.and]: {
+        title: {
+          [Op.like]: req.body.title.length>0?`%${req.body.title}%`:'%'
+        },
+        genre:{
+          [Op.like]: req.body.genre.length>0?`%${req.body.genre}%`:'%'
+        },
+        year:{
+          [Op.like]: req.body.year.length>0?`%${req.body.year}%`:'%'
+        },
+        author:{
+          [Op.like]: req.body.author.length>0?`%${req.body.author}%`:'%'
+        }
+    }
+    }
+  })
+  .then(books =>{
+      //NOTE: Important!
+      //title has to be Search because it is used in form.pug to determine post action
+      res.render("search",{book:req.body, title:"Search",books:books});
+  })
+  .catch(error=>{
+    res.render("error",{title:"Server Error"});
+  });
 });
 
 /* GET method for /books/:id route */
@@ -99,5 +138,7 @@ router.post('/:id/delete', function(req, res, next) {
     res.status(500).render("error",{title:"Server Error"});
   });
 });
+
+
 
 module.exports = router;
