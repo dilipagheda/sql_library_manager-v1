@@ -212,3 +212,12 @@ h2.mb-0{
 h2.mb-0 .btn-link {
   color:green;
 }
+div.not-found{
+  background-color: lightgrey;
+  padding:20px;
+  box-shadow: 10px 10px darkgrey;
+}
+a.not-found{
+background-color: green;
+/* color:white; */
+}
