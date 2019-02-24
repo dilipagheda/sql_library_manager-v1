@@ -182,12 +182,19 @@ main h1 {
 .delete-form{
   /* border:1px solid green; */
   background-color:white;
-  padding:0;
+  /* padding:0; */
   box-shadow: none;
   border:none;
+  margin-top:30px;
+
 }
 .delete-form button {
-  border:none;
+  /* border:none; */
+  padding:10px;
+  width: 100%;
+  background-color:red;
+  color:white;
+  font-size:18px;
 }
 .delete-form button:hover{
   cursor: pointer;

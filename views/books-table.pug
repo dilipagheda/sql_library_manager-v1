@@ -6,23 +6,16 @@ if books
                 th  Author
                 th  Genre
                 th  Year
-                th  Actions
         tbody
             each book in books
                 -
                     let bookTitle='';
                     bookTitle = (book.title.length>45)? `${book.title.substring(0,45)}...` : book.title
                 tr
-                    td  #{bookTitle}
+                    td  
+                        a(href=`/books/${book.id}`) #{bookTitle}
                     td  #{book.author}
                     td  #{book.genre}
                     td  #{book.year}   
-                    td.actions
-                        div
-                            form(class="delete-form" method="post" ,action=`/books/${book.id}/delete` ,onsubmit="return confirm('Do you really want to delete this book?');")
-                                button(type="submit") 
-                                    i(class="fas fa-trash-alt")
-                            a(href=`/books/${book.id}`)
-                                i(class="fas fa-edit")          
     nav(class="pagination-nav" , aria-label="Page navigation")
         ul(class="pagination justify-content-center")
