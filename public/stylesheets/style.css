@@ -7,7 +7,7 @@ body {
   padding: 10px 50px 50px;
   /* font: 18px "Garamond", serif; */
   font-family: 'Text Me One', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 a {
@@ -128,7 +128,7 @@ input[type=text] {
   text-align: center;
 }
 
-nav, ul {
+nav.sticky-top, ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -139,7 +139,7 @@ ul li {
   margin:10px;
 }
 
-nav {
+nav.sticky-top {
   background-color: green;
   padding:10px;
   box-shadow: 5px 5px yellowgreen;
@@ -151,10 +151,8 @@ ul {
   /* margin-bottom: 10px; */
   line-height: 1.3em;
 }
-nav * {
-  margin:0;
-}
-nav h1{
+
+nav.sticky-top h1{
   color:white;
   font-size: 2rem;
   text-transform: uppercase;
@@ -220,4 +218,10 @@ div.not-found{
 a.not-found{
 background-color: green;
 /* color:white; */
+}
+tr.show {
+  display: table-row;
+}
+tr.hide{
+  display:none;
 }

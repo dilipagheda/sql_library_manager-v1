@@ -9,8 +9,11 @@ if books
                 th  Actions
         tbody
             each book in books
+                -
+                    let bookTitle='';
+                    bookTitle = (book.title.length>45)? `${book.title.substring(0,45)}...` : book.title
                 tr
-                    td  #{book.title}
+                    td  #{bookTitle}
                     td  #{book.author}
                     td  #{book.genre}
                     td  #{book.year}   
@@ -21,3 +24,5 @@ if books
                                     i(class="fas fa-trash-alt")
                             a(href=`/books/${book.id}`)
                                 i(class="fas fa-edit")          
+    nav(class="pagination-nav" , aria-label="Page navigation")
+        ul(class="pagination justify-content-center")
