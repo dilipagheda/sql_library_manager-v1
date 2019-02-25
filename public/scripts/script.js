@@ -71,11 +71,11 @@ $('#next').click(function () {
     if (lastPageButtonShown > totalPages) {
         lastPageButtonShown = totalPages;
         $(this).addClass('disabled');
-        $('#prev').removeClass('disabled');
     } else {
         $(`#${firstPageButtonShown}`).show();
         $(`#${lastPageButtonShown}`).show();
     }
+    $('#prev').removeClass('disabled');
 
 });
 
